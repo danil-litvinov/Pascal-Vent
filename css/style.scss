@@ -1,0 +1,598 @@
+@import "fonts.scss";
+@import "reset.scss";
+
+$color_green-1: #78c081;
+$color_green-2: #7ca381;
+$color_green-3: #78c081;
+$color_green-4: #78c081;
+$color_title: #495e4c;
+$color_btn-act: #5ccd6a;
+$color_btn-hov: #54e165;
+$color_btn: #9cd3a3;
+
+%btn_small_text {
+  font-family: "Ruberoid";
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 1.4;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
+%btn_text {
+  font-family: "Ruberoid";
+  font-weight: 600;
+  font-size: 17px;
+  line-height: 1.35;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
+%btn-border {
+  border: solid #78c08140 15px;
+  box-shadow: inset 2px -2px 12px #226f215c;
+  border-radius: 30px;
+}
+
+body,
+html {
+  font-size: 16px;
+  font-family: "Proxima Nova", sans-serif;
+  font-weight: 400;
+  color: #848484;
+}
+
+.wrapper {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  // pointer-events: auto;
+}
+
+.container {
+  max-width: 1140px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.main__header {
+  padding-top: 19px;
+}
+
+.btn-box--small {
+  border-radius: 20px;
+  padding: 10px;
+  width: 210px;
+  background-color: #ffffff73;
+  .button--small {
+    @extend %btn_small_text;
+    position: relative;
+    width: 100%;
+    height: 55px;
+    background-color: #5ccd6a;
+    box-shadow: inset 2px -2px 12px rgba(34, 111, 33, 0.36);
+    border-radius: 17px;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: #54e165;
+    }
+  }
+}
+
+.btn-box {
+  width: 477px;
+  display: block;
+  background: #78c08140;
+  border-radius: 40px;
+  .button {
+    @extend %btn_text;
+    width: 447px;
+    height: 85px;
+    margin: 15px;
+    background-color: #5ccd6a;
+    box-shadow: inset 2px -2px 12px rgba(34, 111, 33, 0.36);
+    border-radius: 30px;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: #54e165;
+    }
+  }
+}
+
+.modal__btn-box {
+  background-color: #78c08240;
+  .button--inactive {
+    background-color: #9cd3a3;
+    pointer-events: none;
+  }
+}
+
+// =========================================================MODAL=================================================================
+// =========================================================MODAL=================================================================
+.modal__cross-box {
+  position: absolute;
+  right: 0;
+  top: -84px;
+  width: 73px;
+  height: 69px;
+  background-color: #78c08240;
+  border-radius: 18px;
+  padding: 10px;
+  .modal__cross {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: #5ccd6a;
+    box-shadow: inset 2px -2px 12px #226f215c;
+    border-radius: 15px;
+    transition: background-color 0.3s;
+    &:hover {
+      background-color: #54e165;
+    }
+    &::before {
+      content: "";
+      position: absolute;
+      display: block;
+      width: 33px;
+      height: 3px;
+      border-radius: 3px;
+      background-color: #fff;
+      top: 22px;
+      left: 10px;
+      // transform: translate(-50%, -50%);
+      transform: rotate(45deg);
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      display: block;
+      width: 33px;
+      height: 3px;
+      border-radius: 3px;
+      background-color: #fff;
+      top: 22px;
+      left: 10px;
+      // transform: translate(-50%, -50%);
+      transform: rotate(-45deg);
+    }
+  }
+}
+
+.modal__wrapper {
+  transition: opacity 0.3s, visibility 0.3s;
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  width: 445px;
+  min-height: 463px;
+  // padding: 35px 35px 0 35px;
+  background-color: #d9fadd;
+  box-shadow: 0px 0px 10px rgba(73, 93, 76, 0.1);
+  border-radius: 50px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 110;
+  backdrop-filter: blur(10px);
+}
+
+.modal__wrapper_form {
+  width: 412px;
+  backdrop-filter: blur(10px);
+}
+
+.modal {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal__header {
+  font-family: "Ruberoid";
+  margin: 35px 0 20px 35px;
+  width: 325px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 1.38;
+  text-transform: capitalize;
+  color: #495e4c;
+  margin-bottom: 20px;
+}
+
+.modal__body {
+  // width: calc(100% + 70px);
+  width: 100%;
+  height: 298px;
+  padding: 35px;
+  // margin-left: -35px;
+  background: #ffffff;
+  box-shadow: 0px 0px 10px rgba(73, 93, 76, 0.1);
+  border-radius: 35px 35px 50px 50px;
+}
+
+.modal__body-form {
+  width: 412px;
+}
+
+.modal__text {
+  font-family: "Proxima Nova";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.62;
+  color: #7ca381;
+  margin-bottom: 20px;
+}
+
+.modal__sched {
+  margin-bottom: 35px;
+  span {
+    display: block;
+    margin-bottom: 17px;
+    font-family: "Proxima Nova";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 19px;
+    color: #7ca381;
+  }
+  time {
+    // display: block;
+    position: relative;
+    padding-left: 37px;
+    font-family: "Proxima Nova";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 1.19;
+    color: #7ca381;
+    text-align: center;
+
+    &::before {
+      content: "";
+      display: block;
+      position: absolute;
+      width: 22px;
+      height: 22px;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      background: url("../images/icons/clock.svg") 100% 100% / contain no-repeat;
+    }
+  }
+}
+
+.modal__tel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "Proxima Nova";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #7b897d;
+  & a::before {
+    content: "";
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    background: url("../images/icons/phone-icon.png") 100% 100% / contain no-repeat;
+    vertical-align: middle;
+    margin-right: 15px;
+  }
+  span {
+    width: 1px;
+    height: 39px;
+    background: #bee1c2;
+    border-radius: 0.5px;
+  }
+  & a {
+    transition: color 0.3s;
+    &:hover {
+      color: #78c081;
+    }
+  }
+}
+
+.modal__caption_wrapper {
+  position: relative;
+}
+
+.modal__input {
+  // position: relative;
+  width: 100%;
+  height: 49px;
+  padding: 16px 20px;
+  background: #ffffff;
+  box-shadow: 0px 0px 8px rgba(66, 83, 69, 0.14);
+  border-radius: 15px;
+  font-family: "Proxima Nova";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.21;
+  color: #7ca381;
+  margin-bottom: 20px;
+  &:last-of-type {
+    margin-bottom: 35px;
+  }
+  .modal__input_tel {
+    text-transform: uppercase;
+  }
+}
+
+.modal__caption,
+label.error {
+  display: none;
+  position: absolute;
+  // margin-top: -20px;
+  left: 3%;
+  top: 65%;
+  font-family: "Proxima Nova";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.25;
+  color: #ff5858;
+}
+
+.modal__body-form {
+}
+.modal__button {
+}
+.button__small {
+}
+.modal__btn-box {
+  width: 100%;
+}
+.btn-box__small {
+}
+
+.modal__logo {
+  display: block;
+  margin: 15px auto;
+}
+
+.overlay {
+  transition: all 0.5s;
+}
+
+.overlay--visible,
+.modal--open {
+  transition: all 0.3s;
+  visibility: visible;
+  opacity: 1;
+  // display: block;
+}
+
+.overlay--visible {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background: rgba(217, 250, 221, 0.55);
+  backdrop-filter: blur(10px);
+  z-index: 105;
+}
+
+// =========================================================HEADER=================================================================
+// =========================================================HEADER=================================================================
+
+.main__header {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  height: 100%;
+  background: linear-gradient(180deg, #f1f1f1 0%, #f0f2f1 16.25%, #ebedec 43.26%, #e6e8e7 72.5%, #dee2e1 100%);
+  overflow: scroll(y);
+}
+
+.header__top {
+  position: relative;
+  z-index: 100;
+  .container {
+    max-width: 1230px;
+  }
+}
+
+.header__top-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header__logo {
+}
+
+.header__nav {
+  display: inline-block;
+}
+
+.header__nav-list {
+  display: flex;
+  max-width: 646px;
+
+  .header__nav-item {
+    margin-right: 40px;
+    font-size: 15px;
+    line-height: 18px;
+    text-transform: lowercase;
+    white-space: nowrap;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    .header__nav-link {
+      color: #495e4c;
+      transition: color 0.3s;
+      &:hover {
+        color: #54e165;
+      }
+    }
+  }
+}
+
+.title {
+  font-family: "Ruberoid";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 64px;
+  line-height: 1.16;
+  text-align: right;
+  text-transform: capitalize;
+  color: #495e4c;
+}
+
+.header__top-btn {
+}
+
+.header__body {
+  display: block;
+  flex-grow: 1;
+  // margin: auto 0;
+}
+
+.header__body-inner {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  .header__content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    position: relative;
+    z-index: 100;
+    width: 520px;
+    height: 100%;
+    margin: 73px 0 64px;
+  }
+}
+
+.headeing__title {
+  position: relative;
+  margin-bottom: 5px;
+  // margin-bottom: 5px;
+  span {
+    display: block;
+    position: absolute;
+    top: 110px;
+    width: 148px;
+    height: 3px;
+    background: #78c081;
+    border-radius: 1.5px;
+  }
+}
+
+.header__title-name {
+  font-family: "Ruberoid";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 64px;
+  line-height: 1.16;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: #78c081;
+  margin-bottom: 20px;
+}
+
+.heading__subtitle {
+  position: relative;
+  padding-left: 62px;
+  // margin-bottom: 52px;
+
+  &::before {
+    content: "";
+    background: url("../images/decor/dec-1.svg") 100% 100% / auto no-repeat;
+    position: absolute;
+    width: 50px;
+    height: 10px;
+    left: 0px;
+    top: 11px;
+  }
+  font-family: "Proxima Nova";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 1.45;
+  /* or 145% */
+
+  color: #7ca381;
+}
+
+.header__contacts {
+  display: flex;
+  // flex-basis: auto;
+  align-items: center;
+  flex-grow: 1;
+  font-family: "Proxima Nova";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #7b897d;
+  margin: 0 auto;
+  .header__address {
+    position: relative;
+    width: 154px;
+    margin: 0 73px 0 52px;
+    transition: color 0.3s;
+    &::before {
+      content: "";
+      position: absolute;
+      width: 32px;
+      height: 32px;
+      top: 50%;
+      left: -52px;
+      background: url("../images/icons/map-icon.svg") 100% 100% / auto no-repeat;
+      transform: translateY(-50%);
+    }
+    &:hover {
+      color: #78c081;
+    }
+  }
+
+  .header__tel {
+    position: relative;
+    width: 129px;
+    margin-left: 54px;
+    &::before {
+      content: "";
+      position: absolute;
+      width: 32px;
+      height: 32px;
+      top: 50%;
+      left: -54px;
+      background: url("../images/icons/phone-icon.png") 100% 100% / auto no-repeat;
+      transform: translateY(-50%);
+    }
+    & a {
+      transition: color 0.3s;
+      &:hover {
+        color: #78c081;
+      }
+    }
+  }
+}
+
+.header__btn-box {
+  // margin-top: 63px;
+}
+
+.header__body-btn {
+}
+
+.header__img {
+  // width: 100%;
+  height: 100%;
+  position: absolute;
+  right: -310px;
+  top: 0;
+  z-index: 2;
+  background-size: contain;
+}

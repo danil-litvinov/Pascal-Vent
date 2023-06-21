@@ -1,0 +1,49 @@
+@font-face {
+  font-family: "ProximaNova";
+  font-weight: 400;
+  font-style: normal;
+  src: local("ProximaNova-Regular"), url("../fonts/ProximaNova-Regular.woff2") format("woff2"), url("../fonts/ProximaNova-Regular.woff") format("woff"), url("../fonts/ProximaNova-Regular.eot") format("eot");
+  font-display: swap;
+}
+@font-face {
+  font-family: "ProximaNova";
+  font-weight: 600;
+  font-style: normal;
+  src: local("ProximaNova-SemiBold"), url("../fonts/ProximaNova-Semibold.woff2") format("woff2"), url("../fonts/ProximaNova-Semibold.woff") format("woff"), url("../fonts/ProximaNova-Semibold.eot") format("eot");
+  font-display: swap;
+}
+@font-face {
+  font-family: "ProximaNova";
+  font-weight: 700;
+  font-style: normal;
+  src: local("ProximaNova-Bold"), url("../fonts/ProximaNova-Bold.woff2") format("woff2"), url("../fonts/ProximaNova-Bold.woff") format("woff"), url("../fonts/ProximaNova-Bold.eot") format("eot");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Ruberoid";
+  font-weight: 300;
+  font-style: normal;
+  src: local("Ruberoid-Light"), url("../fonts/Ruberoid-Light.woff2") format("woff2"), url("../fonts/Ruberoid-Light.woff") format("woff"), url("../fonts/Ruberoid-Light.eot") format("eot");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Ruberoid";
+  font-weight: 500;
+  font-style: normal;
+  src: local("Ruberoid-Medium"), url("../fonts/Ruberoid-Medium.woff2") format("woff2"), url("../fonts/Ruberoid-Medium.woff") format("woff"), url("../fonts/Ruberoid-Medium.eot") format("eot");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Ruberoid";
+  font-weight: 600;
+  font-style: normal;
+  src: local("Ruberoid-SemiBold"), url("../fonts/Ruberoid-SemiBold.woff2") format("woff2"), url("../fonts/Ruberoid-SemiBold.woff") format("woff"), url("../fonts/Ruberoid-SemiBold.eot") format("eot");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Ruberoid";
+  font-weight: 700;
+  font-style: normal;
+  src: local("Ruberoid-Bold"), url("../fonts/Ruberoid-Bold.woff2") format("woff2"), url("../fonts/Ruberoid-Bold.woff") format("woff"), url("../fonts/Ruberoid-Bold.eot") format("eot");
+  font-display: swap;
+}
