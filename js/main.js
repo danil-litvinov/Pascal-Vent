@@ -7,8 +7,10 @@ $(function () {
     if ($('.modal__wrapper').hasClass('modal--open')) {
       $('.modal__wrapper').removeClass('modal--open')
       $('.overlay').removeClass('overlay--visible')
+      $('body').css('overflow', "auto");  
       // $(".modal__input_tel").val('');
     } else {
+      $('body').css('overflow', "hidden");  
       if ($(this).hasClass('header__button--small')) {
         $('.modal__wrapper_contacts').toggleClass('modal--open')
         $('.overlay').toggleClass('overlay--visible')
@@ -19,6 +21,11 @@ $(function () {
     }
   })
 
+  $('.services__filter-button').on('click', function (e) {
+    e.preventDefault()
+    $('.services__filter-button').toggleClass('button--active')
+    $('.services__body-inner').toggleClass('services__filter-body--invisible')
+  })
 
   // $(".modal__input").keyup(function (e) {
   //   $("#contact_form").validate({
@@ -87,47 +94,112 @@ $(function () {
 
   // })
 
-  $.fn.setCursorPosition = function (pos) {
-    if ($(this).get(0).setSelectionRange) {
-      $(this).get(0).setSelectionRange(pos, pos);
-    } else if ($(this).get(0).createTextRange) {
-      var range = $(this).get(0).createTextRange();
-      range.collapse(true);
-      range.moveEnd('character', pos);
-      range.moveStart('character', pos);
-      range.select();
-    }
-  };
+  
+  // $(".modal__input").focus(function (e) {
+    $(".modal__input").keyup(function (e) {
 
-  $(".modal__input").keyup(function (e) {
+      var $name = $(".modal__input_name")
+      var $tel = $(".modal__input_tel");
+      console.log($name.val())
+      console.log($tel.val())
+      console.log($name.val().length)
+      console.log($tel.val().length)
 
-    var $name = $(".modal__input_name")
-    var $tel = $(".modal__input_tel");
+      $(".input_name").keyup(function (e) {
+        if ($name.val().length < 2) {
+          $(".modal__caption_name").css('display', 'block');
+        } else {
+          $(".modal__caption_name").css('display', 'none');
+        }
+      })
+      $(".modal__input_tel").keyup(function (e) {
+        if ($tel.val().length < 12) {
+          $(".modal__caption_tel").css('display', 'block');
+        } else {
+          $(".modal__caption_tel").css('display', 'none');
+        }
+      })
+
+      if ($name.val().length >= 2 && $tel.val().length == 12) {
+        $('.modal__button').removeClass('button--inactive')
+      } else {
+        $('.modal__button').addClass('button--inactive')
+      }
+
+      $.fn.setCursorPosition = function (pos) {
+        if ($(this).get(0).setSelectionRange) {
+          $(this).get(0).setSelectionRange(pos, pos);
+        } else if ($(this).get(0).createTextRange) {
+          var range = $(this).get(0).createTextRange();
+          range.collapse(true);
+          range.moveEnd('character', pos);
+          range.moveStart('character', pos);
+          range.select();
+        }
+      };
+
+      $.mask.definitions['h'] = "[0|1|3|4|5|6|9]"
+      $tel.focus(function () {
+        $(this).setCursorPosition(3);
+      }).mask("+7h999999999", {
+        placeholder: "",
+        autoclear: false,
+      });
+
+
+      $.mask.definitions['h'] = '[А-Яа-я]'
+      $name.focus(function () {
+        $(this).setCursorPosition(1);
+
+      }).mask("hh?hhhhhhhhhhhhhhhhhhhhh", {
+        placeholder: "",
+        autoclear: false,
+      });
+
+    // })
+  })
+
+  $(".contact__input").keyup(function (e) {
+
+    var $name = $(".contact__input_name")
+    var $tel = $(".contact__input_tel");
     console.log($name.val())
     console.log($tel.val())
     console.log($name.val().length)
     console.log($tel.val().length)
 
-    $(".modal__input_name").keyup(function (e) {
+    $(".input_name").keyup(function (e) {
       if ($name.val().length < 2) {
-        $(".modal__caption_name").css('display', 'block');
+        $(".contact__caption_name").css('display', 'block');
       } else {
-        $(".modal__caption_name").css('display', 'none');
+        $(".contact__caption_name").css('display', 'none');
       }
     })
-    $(".modal__input_tel").keyup(function (e) {
+    $(".contact__input_tel").keyup(function (e) {
       if ($tel.val().length < 12) {
-        $(".modal__caption_tel").css('display', 'block');
+        $(".contact__caption_tel").css('display', 'block');
       } else {
-        $(".modal__caption_tel").css('display', 'none');
+        $(".contact__caption_tel").css('display', 'none');
       }
-    })   
+    })
 
     if ($name.val().length >= 2 && $tel.val().length == 12) {
-      $('.modal__button').removeClass('button--inactive')
+      $('.contact__button').removeClass('button--inactive')
     } else {
-      $('.modal__button').addClass('button--inactive')
+      $('.contact__button').addClass('button--inactive')
     }
+
+    $.fn.setCursorPosition = function (pos) {
+      if ($(this).get(0).setSelectionRange) {
+        $(this).get(0).setSelectionRange(pos, pos);
+      } else if ($(this).get(0).createTextRange) {
+        var range = $(this).get(0).createTextRange();
+        range.collapse(true);
+        range.moveEnd('character', pos);
+        range.moveStart('character', pos);
+        range.select();
+      }
+    };
 
     $.mask.definitions['h'] = "[0|1|3|4|5|6|9]"
     $tel.focus(function () {
@@ -147,8 +219,8 @@ $(function () {
       autoclear: false,
     });
 
-  })
-
+  // })
+})
 
 
 
@@ -253,4 +325,22 @@ $(function () {
   // return false;
   // });
   // console.log($('.modal__input_tel').find("11").val() === '11')
+
+  // $(window).scroll(function(e) {
+
+  //     console.log('fff')
+
+  
+  // });
+
+  $(window).on('scroll', function () {
+    if ($(window).scrollTop() > 0) {
+      $(".header__top").css('background-color', "#d9fadd");     
+      $(".header__btn-box--small").css('background-color', "#78c08240");    
+    } else {
+      $(".header__top").css("background-color", "transparent");
+      $(".header__btn-box--small").css("background-color", "#ffffff73");
+    }
+  });
+
 })
