@@ -1,5 +1,18 @@
 $(function () {
 
+  $('.header__nav-item a').on('click', function() {
+
+    let href = $(this).attr('href');
+
+    $('html, body').animate({
+        scrollTop: $(href).offset().top - 114
+    }, {
+        duration: 800,   // по умолчанию «400» 
+        easing: "swing" // по умолчанию «swing» 
+    });
+
+    return false;
+});
 
   $('.header__button, .header__button--small, .comfort__button, .modal__cross, .overlay').on('click', function (e) {
     e.preventDefault()

@@ -168,7 +168,7 @@ html {
 }
 
 .main__services {
-  padding-top: 100px;
+  margin-top: 100px;
 }
 
 .main__decision {
@@ -180,12 +180,22 @@ html {
 }
 
 .main__contact {
-  margin: 100px 0 50px;
+  margin: 100px 0 100px;
   padding: 55px 0 58px;
 }
 
 .main__about {
-  padding: 50px 0 100px;
+  margin-top: 50px;
+  padding-bottom: 100px;
+}
+
+.main__scheme {
+  margin-top: 100px;
+}
+
+.main__portfolio {
+  margin-top: 100px;
+  padding-bottom: 100px;
 }
 
 .main__footer {
@@ -1609,10 +1619,6 @@ html {
   margin-bottom: 20px;
 }
 
-.main__scheme {
-  padding-top: 100px;
-}
-
 .scheme__title {
   margin-bottom: 99px;
 }
@@ -1761,10 +1767,6 @@ html {
     opacity: 1;
   }
 }
-.main__portfolio {
-  padding: 100px 0;
-}
-
 .portfolio {
   position: relative;
 }
@@ -1882,14 +1884,10 @@ html {
   padding-bottom: 100px;
   background-color: #d9fadd;
 }
-.customers::before {
-  content: "";
+.customers > img {
   position: absolute;
   top: -100px;
-  left: 0;
   width: 100vw;
-  height: 100px;
-  background: url("../images/decor/part-bg.svg") 0 101%/100vw no-repeat;
 }
 
 .customers__inner {
@@ -1899,6 +1897,7 @@ html {
 }
 
 .customers__content {
+  margin-top: 51px;
   width: 627px;
   -ms-flex-negative: 0;
       flex-shrink: 0;
@@ -1955,6 +1954,10 @@ html {
   -webkit-filter: drop-shadow(0px 0px 10px rgba(73, 93, 76, 0.1));
           filter: drop-shadow(0px 0px 10px rgba(73, 93, 76, 0.1));
 }
+.customers__slider .customers__slide .customers__image {
+  -webkit-filter: brightness(0);
+          filter: brightness(0);
+}
 .customers__slider .customers__slide .swiper-slide-prev {
   opacity: 0;
 }
@@ -1967,11 +1970,6 @@ html {
 .customers__slider .customers__arrows .customers__arrow--prev {
   margin-right: 25px;
 }
-.customers__image {
-  -webkit-filter: brightness(0);
-          filter: brightness(0);
-}
-
 .footer {
   background: url("../images/decor/footer-bg.svg") 0 0/100% 100% no-repeat, -webkit-gradient(linear, left top, left bottom, from(#f1f1f1), color-stop(16.25%, #f0f2f1), color-stop(43.26%, #ebedec), color-stop(72.5%, #e6e8e7), to(#dee2e1));
   background: url("../images/decor/footer-bg.svg") 0 0/100% 100% no-repeat, linear-gradient(180deg, #f1f1f1 0%, #f0f2f1 16.25%, #ebedec 43.26%, #e6e8e7 72.5%, #dee2e1 100%);
