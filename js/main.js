@@ -1,6 +1,6 @@
 $(function () {
 
-  $('.header__nav-item a').on('click', function() {
+  $('.header__logo, .header__nav-item a').on('click', function() {
 
     let href = $(this).attr('href');
 
