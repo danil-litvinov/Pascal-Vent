@@ -1,18 +1,18 @@
 $(function () {
 
-  $('.header__logo, .header__nav-item a').on('click', function() {
+  $('.header__logo, .header__nav-item a').on('click', function () {
 
     let href = $(this).attr('href');
 
     $('html, body').animate({
-        scrollTop: $(href).offset().top - 114
+      scrollTop: $(href).offset().top - 114
     }, {
-        duration: 800,   // по умолчанию «400» 
-        easing: "swing" // по умолчанию «swing» 
+      duration: 800,   // по умолчанию «400» 
+      easing: "swing" // по умолчанию «swing» 
     });
 
     return false;
-});
+  });
 
   $('.header__button, .header__button--small, .comfort__button, .modal__cross, .overlay').on('click', function (e) {
     e.preventDefault()
@@ -162,7 +162,6 @@ $(function () {
 
   })
 
-
   $(window).on('scroll', function () {
     if ($(window).scrollTop() > 0) {
       $(".header__top").css('background-color', "#d9fadd");
@@ -173,41 +172,41 @@ $(function () {
     }
   });
 
-  var swiper1 = new Swiper('.portfolio__slider', {
-    slidesPerView: 'auto',
-    speed: 1000,
-    spaceBetween: 30,
-    slidesPerView: 1,
-    loop: true,
+    var swiper1 = new Swiper('.portfolio__slider', {
+      slidesPerView: 'auto',
+      speed: 1000,
+      spaceBetween: 30,
+      slidesPerView: 1,
+      loop: true,
 
-    breakpoints: {
-      1500: {
-        slidesPerView: 5,
+      breakpoints: {
+        1500: {
+          slidesPerView: 5,
+        },
+        1200: {
+          slidesPerView: 4,
+        },
+        900: {
+          slidesPerView: 3,
+        },
+        700: {
+          slidesPerView: 1,
+        },
       },
-      1200: {
-        slidesPerView: 4,
+      navigation: {
+        nextEl: '.portfolio__slider .portfolio__arrow--next',
+        prevEl: '.portfolio__slider .portfolio__arrow--prev',
       },
-      900: {
-        slidesPerView: 3,
+    });
+    var swiper2 = new Swiper('.customers__slider', {
+      speed: 1000,
+      loop: true,
+      spaceBetween: 20,
+      slidesPerView: 2.5,
+      navigation: {
+        nextEl: '.customers__slider .customers__arrow--next',
+        prevEl: '.customers__slider .customers__arrow--prev',
       },
-      700: {
-        slidesPerView: 1,
-      },
-    },
-    navigation: {
-      nextEl: '.portfolio__slider .portfolio__arrow--next',
-      prevEl: '.portfolio__slider .portfolio__arrow--prev',
-    },
-  });
-  var swiper2 = new Swiper('.customers__slider', {
-    speed: 1000,
-    loop: true,
-    spaceBetween: 20,
-    slidesPerView: 2.5,
-    navigation: {
-      nextEl: '.customers__slider .customers__arrow--next',
-      prevEl: '.customers__slider .customers__arrow--prev',
-    },
-  });
+    });
 
-})
+  })
