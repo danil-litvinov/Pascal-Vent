@@ -655,10 +655,7 @@ html {
     width: 129px;
     padding-left: 52px;
     box-sizing: content-box;
-    a {
-      
-    }
-
+    white-space: nowrap;
     & a {
       transition: color 0.3s;
       &:hover {
@@ -2005,7 +2002,7 @@ html {
   .header__body-inner {
     .header__content {
       margin: 41px 0 0;
-      max-width: 319px;
+      max-width: 320px;
       align-items: center;
 
       .heading__box {
