@@ -205,7 +205,6 @@ html {
 .btn-box--small {
   border-radius: 20px;
   padding: 10px;
-  max-width: 210px;
   width: 100%;
   -webkit-transition: background-color 0.5s;
   transition: background-color 0.5s;
@@ -593,6 +592,10 @@ html {
   max-width: 646px;
   width: 646px;
   margin: 0 40px;
+}
+
+.header__btn-box--small {
+  max-width: 210px;
 }
 
 .header__nav-list {
@@ -2145,10 +2148,10 @@ html {
   .header__nav-list .header__nav-item {
     font-size: 13px;
   }
-  .btn-box--small {
+  .header__btn-box--small {
     max-width: 190px;
   }
-  .btn-box--small .button--small {
+  .header__btn-box--small .header__button--small {
     font-size: 13px;
   }
   .header__nav-link {
@@ -2176,7 +2179,7 @@ html {
   .header__nav {
     display: none;
   }
-  .btn-box--small {
+  .header__btn-box--small {
     display: none;
   }
   .burger-menu__wrapper {

@@ -110,7 +110,7 @@ html {
 .btn-box--small {
   border-radius: 20px;
   padding: 10px;
-  max-width: 210px;
+  // max-width: 210px;
   width: 100%;
   transition: background-color 0.5s;
   background-color: #ffffff73;
@@ -491,6 +491,10 @@ html {
   max-width: 646px;
   width: 646px;
   margin: 0 40px;
+}
+
+.header__btn-box--small {
+  max-width: 210px;
 }
 
 .header__nav-list {
@@ -1872,9 +1876,9 @@ html {
     }
   }
 
-  .btn-box--small {
+  .header__btn-box--small {
     max-width: 190px;
-    .button--small {
+    .header__button--small  {
       font-size: 13px;
     }
   }
@@ -1911,7 +1915,7 @@ html {
     display: none;
   }
 
-  .btn-box--small {
+  .header__btn-box--small {
     display: none;
   }
 
