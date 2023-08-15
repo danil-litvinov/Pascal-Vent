@@ -1,5 +1,7 @@
 $(function () {
 
+  // $('.header__top').on('swipeup',function(){alert("Меню-закройся!");} );
+
   $('.header__logo, .header__nav-item a').on('click', function () {
 
     let href = $(this).attr('href');
@@ -36,6 +38,18 @@ $(function () {
     e.preventDefault()
     $('.services__filter-button').toggleClass('button--active')
     $('.services__body-inner').toggleClass('services__filter-body--invisible')
+  })
+
+  $('.burger-menu__wrapper, .header__top').mouseup(function (e) {
+    e.stopPropagation(); 
+    $('.header__top').toggleClass('header__top--open')
+    if ($('.header__top').hasClass('header__top--open')) {
+      // $(header).removeClassClass('header__top--open');
+      $('html').css('overflow-y', "hidden");
+    } else {
+      // $header.addClass('header__top--open');
+      $('html').css('overflow-y', "auto");
+    }
   })
 
   $(".modal__input").keyup(function (e) {
@@ -80,7 +94,7 @@ $(function () {
       }
     };
 
-    $.mask.definitions['h'] = "[0|1|3|4|5|6|9]"
+    $tel.mask.definitions['h'] = "[0|1|3|4|5|6|9]"
     $tel.focus(function () {
       $(this).setCursorPosition(3);
     }).mask("+7h999999999", {
@@ -89,7 +103,7 @@ $(function () {
     });
 
 
-    $.mask.definitions['h'] = '[А-Яа-я]'
+    $name.mask.definitions['h'] = '[А-Яа-я]'
     $name.focus(function () {
       $(this).setCursorPosition(1);
 
@@ -142,7 +156,7 @@ $(function () {
       }
     };
 
-    $.mask.definitions['h'] = "[0|1|3|4|5|6|9]"
+    $tel.mask.definitions['h'] = "[0|1|3|4|5|6|9]"
     $tel.focus(function () {
       $(this).setCursorPosition(3);
     }).mask("+7h999999999", {
@@ -151,7 +165,7 @@ $(function () {
     });
 
 
-    $.mask.definitions['h'] = '[А-Яа-я]'
+    $name.mask.definitions['h'] = '[А-Яа-я]'
     $name.focus(function () {
       $(this).setCursorPosition(1);
 
@@ -163,7 +177,7 @@ $(function () {
   })
 
   $(window).on('scroll', function () {
-    if ($(window).scrollTop() > 0) {
+    if (($(window).scrollTop() > 0) && ($(window).width() > 992)) {
       $(".header__top").css('background-color', "#d9fadd");
       $(".header__btn-box--small").css('background-color', "#78c08240");
     } else {
