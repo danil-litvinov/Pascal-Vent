@@ -16,6 +16,12 @@ $(function () {
     return false;
   });
 
+  // $('.header__button, .header__button--small, .comfort__button, .modal__cross, .overlay').on('click', function (e) {
+  //     e.preventDefault()
+  //     $('.modal__inner').toggleClass('modal--open')
+  //     $('html').toggleClass('html__hidden')
+  // })
+
   $('.header__button, .header__button--small, .comfort__button, .modal__cross, .overlay').on('click', function (e) {
     e.preventDefault()
     if ($('.modal__wrapper').hasClass('modal--open')) {
@@ -40,16 +46,17 @@ $(function () {
     $('.services__body-inner').toggleClass('services__filter-body--invisible')
   })
 
-  $('.burger-menu__wrapper, .header__top').mouseup(function (e) {
-    e.stopPropagation(); 
+  $('.burger-menu__wrapper, .header__nav-link').on('click', function (e) {
+    // e.stopPropagation(); 
     $('.header__top').toggleClass('header__top--open')
-    if ($('.header__top').hasClass('header__top--open')) {
-      // $(header).removeClassClass('header__top--open');
-      $('html').css('overflow-y', "hidden");
-    } else {
-      // $header.addClass('header__top--open');
-      $('html').css('overflow-y', "auto");
-    }
+    $('html').toggleClass('html__hidden')
+    // if ($('.header__top').hasClass('header__top--open')) {
+    //   // $(header).removeClassClass('header__top--open');
+    //   $('html').css('overflow-y', "hidden");
+    // } else {
+    //   // $header.addClass('header__top--open');
+    //   $('html').css('overflow-y', "auto");
+    // }
   })
 
   $(".modal__input").keyup(function (e) {
@@ -176,8 +183,18 @@ $(function () {
 
   })
 
+  // $(window).on('scroll', function () {
+  //   if (($(window).scrollTop() > 0) && ($(window).width() > 992)) {
+  //     $(".header__top").css('background-color', "#d9fadd");
+  //     $(".header__btn-box--small").css('background-color', "#78c08240");
+  //   } else {
+  //     $(".header__top").css("background-color", "transparent");
+  //     $(".header__btn-box--small").css("background-color", "#ffffff73");
+  //   }
+  // });
+
   $(window).on('scroll', function () {
-    if (($(window).scrollTop() > 0) && ($(window).width() > 992)) {
+    if ($(window).scrollTop() > 0) {
       $(".header__top").css('background-color', "#d9fadd");
       $(".header__btn-box--small").css('background-color', "#78c08240");
     } else {
