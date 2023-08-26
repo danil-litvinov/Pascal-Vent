@@ -186,6 +186,7 @@ html {
     visibility 0.3s;
   opacity: 0;
   overflow-y: auto;
+  pointer-events: none;
 }
 
 .modal__cross-box {
@@ -244,6 +245,7 @@ html {
   background: #d9fadd;
   border-radius: 50px;
   box-shadow: 0px 0px 10px 0px rgba(73, 93, 76, 0.1);
+  pointer-events: all;
 }
 
 .modal {
@@ -1056,21 +1058,32 @@ html {
     background: url("../images/icons/place-dots.svg") no-repeat;
   }
 }
+
 .step__row-list {
   display: flex;
   justify-content: space-between;
   margin: 0 calc(((100vw - 100%) / -2));
 }
+
+.step__row-list--mobile {
+  display: none;
+}
+
 .step__row-item {
-  height: 150px;
+  height: 149px;
   text-align: center;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
   div {
+    position: relative;
+    display: inline-block;
     width: 100px;
     max-width: 100px;
     height: 100px;
-    margin: 0 8px;
+    margin-bottom: 20px;
     border-radius: 50%;
     background: #d9fadd;
     overflow: hidden;
@@ -1085,15 +1098,14 @@ html {
     width: 100%;
   }
   p {
-    position: absolute;
-    bottom: 0px;
-    left: 50%;
     white-space: nowrap;
     color: #495e4c;
     font-size: 24px;
     font-family: "Proxima Nova";
     font-weight: 600;
-    transform: translateX(-50%);
+  }
+  &:nth-child(even) {
+    max-width: 108px;
   }
   &:first-child {
     top: 20px;
@@ -1124,6 +1136,10 @@ html {
   font-weight: 400;
   line-height: 45px;
   margin-bottom: 33px;
+  text-transform: none;
+  br {
+    display: none;
+  }
 }
 
 .contact_form {
@@ -1301,8 +1317,8 @@ html {
 
 .comfort__icons {
   display: flex;
-  justify-content: space-between;
-  margin-bottom: 35px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
 }
 .comfort__icon {
   display: flex;
@@ -1312,6 +1328,10 @@ html {
   height: 40px;
   border-radius: 20px;
   border: 1px solid #78c081;
+  margin: 0 15px 15px 0;
+  &:last-child {
+    margin-right: 0;
+  }
 }
 
 .comfort__items {
@@ -1372,6 +1392,7 @@ html {
 .comfort__images-group {
   display: flex;
   flex-direction: column;
+  width: 230px;
   &:first-child {
     margin-right: 34px;
   }
@@ -1506,6 +1527,9 @@ html {
   font-size: 35px;
   font-weight: 400;
   text-transform: capitalize;
+  br {
+    display: none;
+  }
 }
 .scheme__text {
   color: #495e4c;
@@ -1539,7 +1563,7 @@ html {
     z-index: -1;
     width: 656px;
     height: 499px;
-    border-radius: 656px;
+    border-radius: 50%;
     background: rgba(186, 255, 195, 0.5);
     filter: blur(100px);
   }
@@ -1555,6 +1579,8 @@ html {
 .portfolio__title {
   max-width: 394px;
   line-height: 1.33; /* 133.333% */
+  margin-right: 30px;
+  flex-shrink: 0.6;
 }
 
 .portfolio__text {
@@ -1567,7 +1593,8 @@ html {
 }
 
 .portfolio__slider {
-  margin-right: calc((100vw - 100%) / -2);
+  margin: 0 calc((100vw - 100%) / -2);
+  padding-left: calc((100vw - 100%) / 2);
 
   .portfolio__arrows {
     margin-bottom: 25px;
@@ -1613,6 +1640,9 @@ html {
         line-height: normal;
       }
     }
+    .portfolio__image {
+      border-radius: 35px;
+    }
   }
 
   .swiper-slide-prev,
@@ -1643,11 +1673,11 @@ html {
   margin-top: 100px;
   padding-bottom: 100px;
   background-color: #d9fadd;
-
   & > img {
     position: absolute;
     top: -100px;
     width: 100vw;
+    z-index: -1;
   }
 }
 
@@ -1656,6 +1686,7 @@ html {
 }
 
 .customers__content {
+  margin: 51px 63px 0 0;
   margin-top: 51px;
   width: 627px;
   flex-shrink: 0;
@@ -1672,6 +1703,10 @@ html {
     border-radius: 1.5px;
     background: #78c081;
   }
+}
+
+.customers__title--mobile {
+  display: none;
 }
 
 .customers__text {
@@ -1695,6 +1730,7 @@ html {
     display: flex;
     align-items: center;
     justify-content: center;
+    min-width: 215px;
     width: 258px;
     height: 116px;
     flex-shrink: 0;
@@ -1946,12 +1982,38 @@ html {
 
   //————————————————————————————————————————————————————————————————STEP————————————————————————————————————————————————————————————————
 
+  .step__content {
+    margin-bottom: 70px;
+  }
+
   .step__title {
     min-width: 415px;
   }
 
   .step__description-list {
     width: 100%;
+    min-width: initial;
+  }
+
+  .step__row-list {
+    margin: 0 calc((100vw - 85%) / -2);
+  }
+
+  //————————————————————————————————————————————————————————————————COMFORT————————————————————————————————————————————————————————————————
+
+  //————————————————————————————————————————————————————————————————CUSTOMERS————————————————————————————————————————————————————————————————
+
+  .customers__content {
+    margin-top: 0;
+  }
+
+  .customers__title {
+    span {
+      top: 30px;
+      right: auto;
+      left: 410px;
+      width: 90px;
+    }
   }
 }
 
@@ -2167,10 +2229,18 @@ html {
 
   //——————————————————————————————————————————————————————————————DECISION——————————————————————————————————————————————————————————————
 
+  .main__decision {
+    padding-top: 75px;
+  }
+
   .decision {
     &::before {
       top: 300px;
     }
+  }
+
+  .decision__title {
+    margin-bottom: 50px;
   }
 
   .decision__place-list {
@@ -2183,16 +2253,241 @@ html {
   }
 
   .decision__img-box {
-    // min-height: 130px;
     height: 130px;
-    // height: 110px;
     .decision__img {
-      // width: 100%;
     }
   }
   .decision__caption {
     min-height: 62px;
   }
+
+  //————————————————————————————————————————————————————————————————STEP————————————————————————————————————————————————————————————————
+
+  .main__step {
+    padding-top: 75px;
+  }
+
+  .step__content {
+    flex-direction: column;
+    margin-bottom: 0;
+  }
+
+  .step__title {
+    margin-bottom: 25px;
+    span {
+      width: 80px;
+    }
+  }
+
+  .step__row-list {
+    display: none;
+  }
+
+  .step__row-list--mobile {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 207px;
+    margin: 0 auto 50px;
+    &::after {
+      content: "";
+      position: absolute;
+      top: -23px;
+      left: -96px;
+      width: 450px;
+      height: 495px;
+      background: url("../images/decor/place-arrow-group.svg") no-repeat;
+    }
+  }
+
+  .step__row-item {
+    width: 100px;
+    top: 0 !important;
+    margin-bottom: 25px;
+    div {
+      margin-bottom: 20px;
+    }
+    &:first-child {
+      margin-left: 37px;
+    }
+    &:nth-child(2) {
+      align-self: flex-end;
+    }
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .step__description {
+    margin-left: 0;
+    max-width: initial;
+  }
+
+  //————————————————————————————————————————————————————————————————CONTACT————————————————————————————————————————————————————————————————
+
+  .main__contact {
+    margin: 75px 0;
+  }
+
+  .contact_form {
+    flex-direction: column;
+  }
+
+  .contact__caption_wrapper {
+    max-width: 319px;
+    width: 100%;
+    margin: 0 0 25px 0;
+    &:nth-child(2) {
+      margin-bottom: 45px;
+    }
+  }
+
+  .contact__input {
+    width: 100%;
+  }
+
+  .contact__btn-box {
+    max-width: 319px;
+    margin: 0;
+  }
+
+  //————————————————————————————————————————————————————————————————ABOUT————————————————————————————————————————————————————————————————
+
+  .main__about {
+    padding-bottom: 75px;
+  }
+
+  .about__inner {
+    flex-direction: column;
+  }
+
+  .about__content {
+    margin: 0 0 50px 0;
+  }
+
+  //————————————————————————————————————————————————————————————————COMFORT————————————————————————————————————————————————————————————————
+
+  .comfort__content {
+    max-width: 100%;
+    margin-right: 0;
+  }
+
+  .comfort__images {
+    display: none;
+  }
+
+  .comfort__btn-box {
+    margin: 0 auto;
+  }
+
+  //————————————————————————————————————————————————————————————————SCHEME————————————————————————————————————————————————————————————————
+
+  .main__scheme {
+    margin-top: 75px;
+  }
+
+  .scheme__title {
+    margin-bottom: 50px;
+  }
+
+  .scheme__row {
+    display: flex;
+    margin-bottom: 30px !important;
+
+    .scheme__row-content {
+      flex-grow: 1;
+      flex-basis: 100%;
+    }
+
+    .scheme__header {
+      white-space: nowrap;
+    }
+
+    .scheme__image {
+      height: 150px;
+      position: relative;
+      // position: relative;
+      // top: 0;
+      // right: 0;
+    }
+
+    &:nth-child(even) {
+      .scheme__image {
+        top: 0;
+        right: 150px;
+        left: auto;
+      }
+    }
+
+    &:nth-child(odd) {
+      flex-direction: row-reverse;
+      .scheme__image {
+        top: 0;
+        right: auto;
+        left: 150px;
+      }
+    }
+
+    &::after {
+      display: none;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+      justify-content: center;
+      .scheme__header {
+        br {
+          display: block;
+        }
+      }
+      .scheme__image {
+        height: 100px;
+        position: absolute;
+        left: 50%;
+      }
+    }
+  }
+
+  //————————————————————————————————————————————————————————————————PORTFOLIO————————————————————————————————————————————————————————————————
+
+  .main__portfolio {
+    margin-top: 75px;
+    padding-bottom: 75px;
+  }
+
+  .portfolio__content {
+    flex-direction: column;
+    align-items: normal;
+  }
+
+  .portfolio__title {
+    margin: 0 0 30px 0;
+  }
+
+  //————————————————————————————————————————————————————————————————CUSTOMERS————————————————————————————————————————————————————————————————
+
+  .customers__inner {
+    flex-direction: column;
+  }
+
+  .customers__content {
+    margin: 0 0 35px 0;
+    width: 100%;
+  }
+
+  .customers__slider {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
+    margin: 0 calc((100vw - 100%)/-2);
+    padding-left: calc((100vw - 100%)/2);
+    align-self: self-start;
+    .customers__arrows {
+      margin: 30px 0 0;
+    }
+  }
+
 }
 
 // ——————————————————————————————————————————————————————————————————850——————————————————————————————————————————————————————————————————
@@ -2209,7 +2504,7 @@ html {
 
 @media (max-width: 768px) {
   .container {
-    padding: 0 25px;
+    padding: 0 28px;
   }
 
   .header {
@@ -2258,16 +2553,81 @@ html {
     grid: repeat(4, auto) / repeat(2, 1fr);
     justify-items: center;
   }
+
+  //————————————————————————————————————————————————————————————————STEP————————————————————————————————————————————————————————————————
+
+  //————————————————————————————————————————————————————————————————CONTACT————————————————————————————————————————————————————————————————
+
+  .contact {
+    background-image: none;
+  }
+
+  //————————————————————————————————————————————————————————————————ABOUT————————————————————————————————————————————————————————————————
+
+  .about__content {
+    height: auto;
+    .about__title {
+      font-size: 28px;
+      span {
+        font-size: 15px;
+        top: -4px;
+      }
+    }
+
+    .about__text {
+      font-size: 14px;
+    }
+  }
+
+  .about__items {
+    gap: 50px 30px;
+  }
+
+  //————————————————————————————————————————————————————————————————PORTFOLIO————————————————————————————————————————————————————————————————
+
+  .portfolio {
+    &::before {
+      top: auto;
+      bottom: 60px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 465px;
+      height: 387px;
+      filter: blur(85px);
+    }
+  }
+
+  .portfolio__slider {
+    width: 100vw;
+    margin: 0 -28px;
+    padding: 0 28px;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+
+    .portfolio__arrows {
+      width: 122px;
+      margin: 30px 0 0;
+    }
+  }
+
+  //————————————————————————————————————————————————————————————————CUSTOMERS————————————————————————————————————————————————————————————————
+
+  .customers {
+    margin-top: 75px;
+    padding-bottom: 75px;
+  }
+
+  .customers__slider {
+    margin: 0 -28px;
+    padding: 0 28px;
+  }
 }
 
 // ——————————————————————————————————————————————————————————————————576——————————————————————————————————————————————————————————————————
 // ——————————————————————————————————————————————————————————————————576——————————————————————————————————————————————————————————————————
 
 @media (max-width: 576px) {
-  .container {
-    padding: 0 15px;
-  }
-
   .title {
     font-size: 28px;
     span {
@@ -2421,13 +2781,172 @@ html {
   .decision__caption {
     font-size: 14px;
   }
+
+  //————————————————————————————————————————————————————————————————STEP————————————————————————————————————————————————————————————————
+
+  .title {
+    span {
+      width: 62px;
+      margin-left: 15px;
+    }
+  }
+
+  //————————————————————————————————————————————————————————————————CONTACT————————————————————————————————————————————————————————————————
+
+  .main__contact {
+    margin: 70px 0;
+    padding: 35px 0;
+  }
+
+  //————————————————————————————————————————————————————————————————ABOUT————————————————————————————————————————————————————————————————
+
+  .main__about {
+    padding-bottom: 70px;
+  }
+
+  .about__content {
+    width: 100%;
+    margin-bottom: 32px;
+    padding: 35px 25px 25px;
+    &::after {
+      width: 508px;
+      height: 387px;
+      top: 14px;
+      left: -95px;
+    }
+  }
+
+  .about__items {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    .about__item {
+      &:nth-child(even) {
+        align-self: flex-end;
+      }
+    }
+  }
+
+  //————————————————————————————————————————————————————————————————COMFORT————————————————————————————————————————————————————————————————
+
+  .comfort__title {
+    margin-bottom: 25px;
+  }
+
+  .comfort__icons {
+    margin-bottom: 10px;
+  }
+
+  .comfort__icon {
+    margin-right: 13px;
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  .comfort__item {
+    margin-bottom: 12px;
+    &:last-child {
+      margin-bottom: 30px;
+    }
+  }
+
+  .comfort__text {
+    font-size: 14px;
+    margin-bottom: 45px;
+  }
+
+  .comfort__btn-box {
+    max-width: 319px;
+    margin-bottom: 0;
+  }
+
+  //————————————————————————————————————————————————————————————————SCHEME————————————————————————————————————————————————————————————————
+
+  .scheme__title {
+    margin-bottom: 25px;
+  }
+
+  .scheme__row {
+    &:last-child {
+      justify-content: center;
+      .scheme__header {
+        br {
+          display: block;
+        }
+      }
+      .scheme__image {
+        top: 43px;
+
+        height: 65px;
+      }
+    }
+  }
+
+  .scheme__header {
+    font-size: 24px;
+  }
+
+  .scheme__text {
+    font-size: 14px;
+    min-width: 300px;
+    height: 92px;
+  }
+
+  //————————————————————————————————————————————————————————————————PORTFOLIO————————————————————————————————————————————————————————————————
+
+  .portfolio__content {
+    margin-bottom: 30px;
+    .portfolio__title {
+      margin-bottom: 25px;
+    }
+  }
+
+  .portfolio__slider {
+    .portfolio__slide {
+      .portfolio__text {
+        left: 30px;
+        bottom: 35px;
+        white-space: normal;
+        h5 {
+          font-size: 22px;
+        }
+      }
+    }
+    .swiper-slide-active {
+      width: 100% !important;
+    }
+  }
+
+  //————————————————————————————————————————————————————————————————CUSTOMERS————————————————————————————————————————————————————————————————
+
+  .customers {
+    padding-bottom: 45px;
+    & > img {
+      top: -55px;
+    }
+  }
+
+  .customers__title {
+    display: none;
+    margin-bottom: 25px;
+  }
+
+  .customers__title--mobile {
+    display: block;
+  }
+
+  .customers__text {
+    font-size: 14px;
+  }
+
 }
 
 // ——————————————————————————————————————————————————————————————————445——————————————————————————————————————————————————————————————————
 // ——————————————————————————————————————————————————————————————————445——————————————————————————————————————————————————————————————————
 
 @media (max-width: 445px) {
-
   .modal__body {
     height: auto;
   }
@@ -2451,8 +2970,26 @@ html {
 // ——————————————————————————————————————————————————————————————————370——————————————————————————————————————————————————————————————————
 
 @media (max-width: 370px) {
-
   //——————————————————————————————————————————————————————————————DECISION——————————————————————————————————————————————————————————————
 
+  //————————————————————————————————————————————————————————————————CONTACT————————————————————————————————————————————————————————————————
 
+  .title {
+    br {
+      display: block;
+    }
+    white-space: nowrap;
+  }
+
+  //————————————————————————————————————————————————————————————————SCHEME————————————————————————————————————————————————————————————————
+
+  .scheme__title {
+    white-space: normal;
+  }
+
+  //————————————————————————————————————————————————————————————————PORTFOLIO————————————————————————————————————————————————————————————————
+
+  .portfolio__title {
+    white-space: normal;
+  }
 }
