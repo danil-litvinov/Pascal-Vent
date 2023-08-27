@@ -1778,8 +1778,12 @@ html {
   max-width: 406px;
 }
 .footer__logo {
+  display: block;
   width: 352px;
   margin-bottom: 30px;
+  img {
+    width: 100%;
+  }
 }
 
 .footer__text {
@@ -1819,6 +1823,7 @@ html {
 }
 
 .footer__contacts {
+  position: relative;
   width: 222px;
   flex-shrink: 0;
 
@@ -1831,7 +1836,7 @@ html {
     font-family: "Proxima Nova";
     font-size: 16px;
     line-height: 1.5; /* 150% */
-    span {
+    & > span {
       display: block;
       width: 100%;
       height: 1px;
@@ -1873,17 +1878,26 @@ html {
   margin-bottom: 25px;
 }
 
+.footer__caption_wrapper {
+  width: 100%;
+}
+
 .footer__input {
-  width: 290px;
+  width: 100%;
   height: 49px;
   margin-bottom: 20px;
   padding: 16px 20px;
   border-radius: 15px;
   background: #fff;
   box-shadow: 0px 0px 10px 0px rgba(73, 93, 76, 0.1);
-  color: #7ca381;
+  color: #7CA381;
   font-family: "Proxima Nova";
   font-size: 14px;
+  &::placeholder {
+    color: #7CA381;
+    font-family: "Proxima Nova";
+    font-weight: 400;
+  }
 }
 
 .footer__btn-box {
@@ -2014,6 +2028,20 @@ html {
       left: 410px;
       width: 90px;
     }
+  }
+
+  //————————————————————————————————————————————————————————————————FOOTER————————————————————————————————————————————————————————————————
+
+  .footer__about {
+    width: 360px;
+  }
+
+  .footer__logo {
+    width: 300px;
+  }
+
+  .footer__slogan {
+    font-size: 16px;
   }
 }
 
@@ -2480,14 +2508,70 @@ html {
     flex-direction: column;
     align-items: center;
     width: 100vw;
-    margin: 0 calc((100vw - 100%)/-2);
-    padding-left: calc((100vw - 100%)/2);
+    margin: 0 calc((100vw - 100%) / -2);
+    padding-left: calc((100vw - 100%) / 2);
     align-self: self-start;
     .customers__arrows {
       margin: 30px 0 0;
     }
   }
 
+  //————————————————————————————————————————————————————————————————FOOTER————————————————————————————————————————————————————————————————
+
+  .main__footer {
+    padding: 140px 0 70px;
+    padding-top: 140px;
+  }
+
+  .footer__inner {
+    position: relative;
+    // flex-direction: column;
+    flex-wrap: wrap;
+    // justify-content: flex-start;
+    // align-items: center;
+  }
+
+  .footer__about {
+    max-width: 100%;
+    width: 100%;
+    order: 3;
+    .footer__logo {
+      position: absolute;
+      left: 0;
+      top: -95px;
+      width: 212px;
+      height: 65px;
+    }
+
+    .footer__text {
+      margin: 40px 0 50px;
+    }
+
+    .footer__slogan {
+      &::before {
+        top: -25px;
+      }
+    }
+  }
+
+  .footer__contacts {
+    // margin-right: 50px;
+    // order: 2;
+    // .footer__item {
+    //   height: 100px;
+    //   display: flex;
+    //   flex-direction: column;
+    //   flex-wrap: wrap;
+    //   span {
+    //     display: none;
+    //   }
+    // }
+  }
+
+  .footer__form {
+    margin: 0 auto;
+    // order: 2;
+  }
 }
 
 // ——————————————————————————————————————————————————————————————————850——————————————————————————————————————————————————————————————————
@@ -2621,6 +2705,46 @@ html {
   .customers__slider {
     margin: 0 -28px;
     padding: 0 28px;
+  }
+
+  //————————————————————————————————————————————————————————————————FOOTER————————————————————————————————————————————————————————————————
+
+  .footer__inner {
+    flex-wrap: nowrap;
+    flex-direction: column;
+  }
+
+  .footer__contacts {
+    width: 440px;
+    margin-bottom: 50px;
+    // order: 2;
+    .footer__item {
+      height: 93px;
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      a,
+      time {
+        white-space: normal;
+      }
+      span {
+        display: none;
+      }
+      .footer__items {
+        max-width: 220px;
+        margin-bottom: 15px;
+        &:nth-child(5),
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+
+  .footer__form {
+    max-width: 320px;
+    margin: 0;
+    // order: 2;
   }
 }
 
@@ -2941,6 +3065,51 @@ html {
     font-size: 14px;
   }
 
+  //————————————————————————————————————————————————————————————————FOOTER————————————————————————————————————————————————————————————————
+
+  .footer__inner {
+    font-size: 22px;
+  }
+
+  .footer__contacts {
+    position: relative;
+    width: 100%;
+    .footer__contacts-title {
+      margin-bottom: 15px;
+    }
+
+    .footer__item {
+      width: 100%;
+      .footer__items {
+        width: 150px;
+        font-size: 13px;
+        background-size: 16px !important;
+        padding-left: 30px;
+      }
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: -20px;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      border-radius: 1.5px;
+      background: #78c081;
+    }
+  }
+
+  .footer__text {
+    font-size: 13px;
+  }
+
+  .footer__slogan {
+    font-size: 15px;
+    span {
+      font-size: 18px;
+    }
+  }
 }
 
 // ——————————————————————————————————————————————————————————————————445——————————————————————————————————————————————————————————————————
@@ -2963,6 +3132,16 @@ html {
         margin-bottom: 0;
       }
     }
+  }
+
+  //————————————————————————————————————————————————————————————————FOOTER————————————————————————————————————————————————————————————————
+
+  .footer__item {
+    align-content: space-between;
+  }
+
+  .footer__form {
+    max-width: 100%;
   }
 }
 
